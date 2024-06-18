@@ -104,6 +104,16 @@
     "product_title": "Example product title",
     "collection_title": "Your collection's name"
   },
+  "data-table-crypto": {
+    "heading-1": "Rank",
+    "heading-2": "ID",
+    "heading-3": "Symbol",
+    "heading-4": "Link",
+    "heading-5": "USD",
+    "heading-6": "GBP",
+    "heading-7": "EUR",
+    "heading-8": "AED"
+  },
   "products": {
     "product": {
       "add_to_cart": "Add to cart",
