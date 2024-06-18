@@ -19,7 +19,7 @@ class DataTable extends HTMLElement {
             const fetchedData = response.data;
 
             for(let i = 0; i < 25; i++) {
-                const exchangeRateKey = '31e058fe13f333ea9374d1c4';
+                const exchangeRateKey = 'e7c69b1348790fa092cee3fa';
                 const tableTR = document.createElement('tr');
 
                 this.querySelector('table tbody').appendChild(tableTR);
