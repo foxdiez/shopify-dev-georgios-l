@@ -1,0 +1,113 @@
+{% liquid
+    assign padding_top = section.settings.padding_top
+    assign padding_bottom = section.settings.padding_bottom
+    assign padding_top_mobile = section.settings.padding_top_mobile
+    assign padding_bottom_mobile = section.settings.padding_bottom_mobile
+%}
+
+<script src="{{ 'sortable.js' | asset_url }}" defer="defer" type="module"></script>
+<script src="{{ 'data-table.js' | asset_url }}" defer="defer" type="module"></script>
+{{ 'data-table.css' | asset_url | stylesheet_tag }}
+
+<style>
+    #{{ section.id }}.section-padding {
+        padding-top: {{ padding_top_mobile }}px;
+        padding-bottom: {{ padding_bottom_mobile }}px;
+    }
+    @media (min-width: 768px) {
+        #{{ section.id }}.section-padding {
+            padding-top: {{ padding_top }}px;
+            padding-bottom: {{ padding_bottom }}px;
+        }
+    }
+</style>
+
+<div 
+    id="{{ section.id }}"
+    class="section-padding"
+>
+    <data-table>
+        <table class="sortable">
+            <thead>
+                <tr>
+                    <th>{{ 'data-table-crypto.heading-1' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-2' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-3' | t }}</th>
+                    <th class="no-sort">{{ 'data-table-crypto.heading-4' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-5' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-6' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-7' | t }}</th>
+                    <th>{{ 'data-table-crypto.heading-8' | t }}</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </data-table>
+</div>
+{% schema %}
+    {
+        "name": "Data table",
+        "class": "data-table",
+        "settings": [
+            {
+                "type": "header",
+                "content": "General settings"
+            },
+            {
+                "type": "range",
+                "id": "padding_top",
+                "label": "Padding top",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom",
+                "label": "Padding bottom",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "padding_top_mobile",
+                "label": "Padding top (Mobile)",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "default": 0
+            },
+            {
+                "type": "range",
+                "id": "padding_bottom_mobile",
+                "label": "Padding bottom (Mobile)",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "px",
+                "default": 0
+            },
+            {
+                "type": "header",
+                "content": "Section settings"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Data table"
+            }
+        ]
+    }
+{% endschema %}
